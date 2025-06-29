@@ -5,39 +5,34 @@ import { useTranslation } from 'react-i18next';
 import axios from 'axios'
 import { api } from '@/app/config/api'
 import { AuthContext } from '@/app/context/auth_context'
-import Queue_skeleton from '@/app/components/skeletons/Queue_skeleton'
+import Custom_Spinner from '@/app/custom/custom_spinner';
 
-function page() {
+
+function UserQueues() {
     const { t, i18n } = useTranslation();
-    const [queues, setQueues] = useState(null);
-    const { auth } = useContext(AuthContext)
+    const [queues, setQueues] = useState<any[] | null>(null);
+    const { auth } = useContext(AuthContext);
 
-
-
-
-    const fetch_queues = async (userId) => {
+    const fetch_queues = async (userId: string) => {
         try {
-            const response = await axios.get(`${api.baseUrl}api/v1/queues/user/queues/${userId}`)
-            console.log(response.data)
-
-            if (response.data.queues.length > 0) {
-                setQueues(response.data.queues)
-                
+            const response = await axios.get(`${api.baseUrl}api/v1/queues/user/queues/${userId}`);
+            if (response.data.queues && response.data.queues.length > 0) {
+                setQueues(response.data.queues);
             } else {
-                setQueues([])
+                setQueues([]);
             }
         } catch (error) {
-            console.log("Error fetching queues",error)
+            setQueues([]);
+            console.log("Error fetching queues", error);
         }
-    }
-
-
-
+    };
 
     useEffect(() => {
         const userId = auth?.user?.user?._id;
         if (userId) {
             fetch_queues(userId);
+        } else {
+            setQueues([]);
         }
     }, [auth]);
 
@@ -106,19 +101,8 @@ function page() {
                         )}
                     </>
                 ) : (
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                        <Queue_skeleton />
-                        <Queue_skeleton />
-                        <Queue_skeleton />
-                        <Queue_skeleton />
-                        <Queue_skeleton />
-                        <Queue_skeleton />
-                        <Queue_skeleton />
-                        <Queue_skeleton />
-                        <Queue_skeleton />
-                        <Queue_skeleton />
-                        <Queue_skeleton />
-                    </div>)}
+                <Custom_Spinner />
+                )}
 
 
 
@@ -136,4 +120,4 @@ function page() {
     )
 }
 
-export default page
+export default UserQueues
