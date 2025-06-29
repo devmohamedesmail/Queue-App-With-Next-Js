@@ -1,12 +1,10 @@
 'use client'
-import Footer from '@/app/components/Footer'
-import Mobile_Dock from '@/app/components/Mobile_Dock'
-import Navbar from '@/app/components/Navbar'
+
 import React, { useContext, useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
 import axios from 'axios'
 import { api } from '@/app/config/api'
-import { AuthContext } from '@/app/context/AuthContext'
+import { AuthContext } from '@/app/context/auth_context'
 import Queue_skeleton from '@/app/components/skeletons/Queue_skeleton'
 
 function page() {
@@ -46,7 +44,7 @@ function page() {
 
     return (
         <div>
-            <Navbar />
+         
 
             <div className="container m-auto px-5 my-10">
 
@@ -133,8 +131,7 @@ function page() {
 
 
 
-            <Footer />
-            <Mobile_Dock />
+      
         </div>
     )
 }
