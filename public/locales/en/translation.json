@@ -40,7 +40,7 @@
 			"actions": "Actions",
 			"view-details": "View Details",
 			"cancel-queue": "Cancel Queue",
-			"no-queues-desc":"There are no queues available at the moment. Please check back later."
+			"no-queues-desc": "There are no queues available at the moment. Please check back later."
 		},
 		"employees": {
 			"title": "Employees",
@@ -132,10 +132,122 @@
 		"password-mismatch": "Passwords do not match.",
 		"password-strength": "Password must be at least 8 characters long and contain a mix of letters, numbers, and special characters.",
 		"email-not-registered": "This email is not registered.",
-		"register-desc":" Create an account to access all features.",
-		"login-desc":" Log in to your account to continue."
+		"register-desc": " Create an account to access all features.",
+		"login-desc": " Log in to your account to continue.",
+		"image": "Image",
+		"no-data": "No data available.",
+		"confirm-delete-user": "Are you sure you want to delete this user?",
+		"search": "Search"
 		
 		
-		
+	},
+	"user":{
+		"welcome": "Welcome to the Queue App",
+		"manage-queues": "Manage your queues efficiently",
+		"view-statistics": "View detailed statistics of your queues",
+		"settings": "Customize your settings",
+		"notifications": "Stay updated with notifications",
+		"help-support": "Need help? Contact support"
+	},
+	"admin":{
+		"sidebar": {
+			"dashboard": "Dashboard",
+			"places": "Places",
+			"users": "Users",
+			"setting": "Setting",
+			"pages": "Pages",
+			"help": "Help",
+			"visit-site": "Visit Site",
+			"home": "Home"
+		},
+		"places":{
+			"show-places": "Show Places",
+			"create-new-place": "Create New Place",
+			"title": "Places",
+			"add-place": "Add Place",
+			"edit-place": "Edit Place",
+			"place-name": "Place Name",
+			"place-information": "Place Information",
+			"name-en": "Name (English)",
+			"name-ar": "Name (Arabic)",
+			"address-en": "Address (English)",
+			"address-ar": "Address (Arabic)",
+			"description": "Description",
+			"select-image": "Select Image",
+			"place-location": "Place Location",
+			"location-link": "Location Link",
+			"latitude": "Latitude",
+			"longitude": "Longitude",
+			"place-settings": "Place Settings",
+			"start-work": "Start Work",
+			"close-work": "Close Work",
+			"work-days": "Work Days",
+			"move-turn": "Move Turn",
+			"estimated-time": "Estimated Time",
+			"place-services": "Place Services",
+			"service-title-en": "Service Title (English)",
+			"service-title-ar": "Service Title (Arabic)",
+			"title-en": "Title (English)",
+			"title-ar": "Title (Arabic)",
+			"added-success": "Updated successfully!",
+			"error": "An error occurred.",
+			"required": "This field is required."
+		},
+		"settings":{
+			"title":"Settings",
+			"site-name-en": "Site Name (English)",
+			"site-name-ar": "Site Name (Arabic)",
+			"site-description-en": "Site Description (English)",
+			"site-description-ar": "Site Description (Arabic)",
+			"site-logo": "Site Logo",
+			"site-phone": "Site Phone",
+			"site-email": "Site Email",
+			"site-address-en": "Site Address (English)",
+			"site-address-ar": "Site Address (Arabic)",
+			"site-working-hours": "Site Working Hours",
+			"site-working-days": "Site Working Days",
+			"site-timezone": "Site Timezone",
+			"site-language": "Site Language",
+			"site-currency": "Site Currency",
+			"site-favicon": "Site Favicon",
+			"site-social-links": "Site Social Links"
+			
+		},
+		"help": {
+			"title": "Help",
+			"topic": "Topic",
+			"view-helps": "View Helps",
+			"reply-help": "Reply to Help",
+			"help-id": "Help ID",
+			"help-content": "Help Content",
+			"reply-content": "Reply Content",
+			"reply-success": "Reply sent successfully!",
+			"reply-failed": "Failed to send reply.",
+			"message": "Message",
+			"reply": "Reply",
+			"no-helps": "No helps found.",
+			"view-reply": "View Reply"
+		},
+		"users":{
+			"title": "Users",
+			"add-user": "Add User",
+			"edit-user": "Edit User",
+			"user-name": "User Name",
+			"user-email": "User Email",
+			"user-phone": "User Phone",
+			"user-role": "User Role",
+			"user-status": "User Status",
+			"active": "Active",
+			"inactive": "Inactive",
+			"select-role": "Select Role",
+			"admin": "Admin",
+			"subscriber": "Subscriber",
+			"user": "User",
+			"delete-user": "Delete User",
+			"role": "Role",
+			"no-users": "No users found.",
+			"view-user": "View User"
+			
+		}
 	}
 }

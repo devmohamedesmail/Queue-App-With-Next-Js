@@ -1,6 +1,5 @@
 'use client'
 import React, { useContext, useEffect, useState } from 'react'
-import Place_skeleton from '../components/skeletons/Place_skeleton';
 import Place_Item from '../items/place_item';
 import { PlaceContext } from '../context/place_context';
 import { useTranslation } from 'react-i18next';
@@ -8,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 export default function Place_Section() {
     const { places }: any = useContext(PlaceContext);
     const { t } = useTranslation();
-  
+
 
 
 
@@ -25,13 +24,27 @@ export default function Place_Section() {
                 </div>) : (<p>{t('no-places')}</p>)}
             </>) : (
                 <div className='grid grid-cols-2 md:grid-cols-4 gap-2'>
-                    <Place_skeleton />
-                    <Place_skeleton />
-                    <Place_skeleton />
-                    <Place_skeleton />
-                    <Place_skeleton />
-                    <Place_skeleton />
-                    <Place_skeleton />
+                    <div className="flex w-52 flex-col gap-4">
+                        <div className="skeleton h-32 w-full"></div>
+                        <div className="skeleton h-4 w-28"></div>
+                        <div className="skeleton h-4 w-full"></div>
+                        <div className="skeleton h-4 w-full"></div>
+                    </div><div className="flex w-52 flex-col gap-4">
+                        <div className="skeleton h-32 w-full"></div>
+                        <div className="skeleton h-4 w-28"></div>
+                        <div className="skeleton h-4 w-full"></div>
+                        <div className="skeleton h-4 w-full"></div>
+                    </div><div className="flex w-52 flex-col gap-4">
+                        <div className="skeleton h-32 w-full"></div>
+                        <div className="skeleton h-4 w-28"></div>
+                        <div className="skeleton h-4 w-full"></div>
+                        <div className="skeleton h-4 w-full"></div>
+                    </div><div className="flex w-52 flex-col gap-4">
+                        <div className="skeleton h-32 w-full"></div>
+                        <div className="skeleton h-4 w-28"></div>
+                        <div className="skeleton h-4 w-full"></div>
+                        <div className="skeleton h-4 w-full"></div>
+                    </div>
                 </div>
             )}
         </div>

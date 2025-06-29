@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import Language_switcher from '../commen_components/language_switcher'
 import { AuthContext} from '@/app/context/auth_context'
 
-function Admin_header({ isSidebarOpen, setIsSidebarOpen }:any) {
+function Admin_Header({ isSidebarOpen, setIsSidebarOpen }:any) {
 
 
 
@@ -34,7 +34,7 @@ function Admin_header({ isSidebarOpen, setIsSidebarOpen }:any) {
         <div className="navbar bg-base-100 shadow-sm px-4 flex justify-between items-center">
             <div className="flex items-center gap-2">
                 <button
-                    className="btn btn-ghost btn-square md:hidden"
+                    className="btn bg-main text-white btn-square md:hidden"
                     onClick={() => setIsSidebarOpen(true)}
                 >
                     <span className="text-xl">☰</span>
@@ -45,11 +45,7 @@ function Admin_header({ isSidebarOpen, setIsSidebarOpen }:any) {
             </div>
 
             <div className="flex gap-2 items-center">
-                <input
-                    type="text"
-                    placeholder="Search"
-                    className="input input-bordered w-24 md:w-auto"
-                />
+                <Language_switcher />
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                         <AiOutlineUser size={20} />
@@ -60,7 +56,7 @@ function Admin_header({ isSidebarOpen, setIsSidebarOpen }:any) {
                     >
                         <li><a href="">{auth?.user?.user?.name}</a></li>
                         <li><a><button onClick={() => handle_logout()}>{t('logout')}</button></a></li>
-                        <Language_switcher />
+                        
                     </ul>
                 </div>
             </div>
@@ -68,4 +64,4 @@ function Admin_header({ isSidebarOpen, setIsSidebarOpen }:any) {
     )
 }
 
-export default Admin_header
+export default Admin_Header

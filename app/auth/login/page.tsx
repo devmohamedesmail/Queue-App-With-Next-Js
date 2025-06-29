@@ -49,7 +49,7 @@ export default function Login_Page() {
           toast.success('✅ Login successful');
           setAuth(res.user.user.user);
           if (role === 'admin') {
-            // router.push('/admin/dashboard')
+            router.push('/admin')
           }else if (role === 'subscriber'){
             router.push('/subscriber')
           } 
