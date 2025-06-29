@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from '@/app/context/auth_context';
 import { PlaceProvider } from "./context/place_context";
 import { DataProvider } from "./context/data_context";
+import { ToastContainer } from "react-toastify";
 
-
+import ClientWrapper from "./components/commen_components/clientwrapper";
 
 
 
@@ -24,15 +24,29 @@ export default function RootLayout({
       <body
         className={` antialiased`}
       >
+        <ClientWrapper>
         <AuthProvider>
           <DataProvider>
             <PlaceProvider>
               {children}
+                <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+
+              />
             </PlaceProvider>
           </DataProvider>
 
         </AuthProvider>
-
+        </ClientWrapper>
       </body>
     </html>
   );

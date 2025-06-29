@@ -2,6 +2,6 @@
 
 import "../../../i18n"
 
-export default function ClientWrapper({ children }) {
+export default function ClientWrapper({ children }:any) {
   return children;
 }

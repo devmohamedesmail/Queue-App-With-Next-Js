@@ -1,6 +1,8 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function Custom_Spinner() {
+  const { t } = useTranslation();
   return (
     <div className="flex flex-col items-center justify-center py-8">
       <div className="relative w-16 h-16 flex items-center justify-center">
@@ -15,7 +17,7 @@ export default function Custom_Spinner() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 17l4 4 4-4m0-5V3m-8 9v6a2 2 0 002 2h4a2 2 0 002-2v-6" />
         </svg>
       </div>
-      <span className="mt-4 text-main font-bold text-lg animate-pulse">Loading Queue...</span>
+      <span className="mt-4 text-main font-bold text-lg animate-pulse"> {t('common.loading')}</span>
     </div>
   );
 }

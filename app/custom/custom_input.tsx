@@ -41,7 +41,7 @@ export default function Custom_Input({
            placeholder={placeholder} 
            value={value} 
            onChange={onChange} 
-           className={`input input-neutral focus:outline-0 w-full border-gray-400 focus:border-green-600 h-12 ${i18n.language === 'en' ? 'text-left' : 'text-right'}`} />
+           className={`input input-neutral focus:outline-0 w-full border-gray-400 focus:border-main focus:ring-main focus:ring-1 rounded h-12 ${i18n.language === 'en' ? 'text-left' : 'text-right'}`} />
            <p className={`text-red-500 text-xs ${i18n.language === 'en' ? 'text-left' : 'text-right'}`}>{error ? error : ''}</p>
     </div>
   );
