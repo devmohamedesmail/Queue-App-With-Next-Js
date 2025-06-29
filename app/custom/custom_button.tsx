@@ -10,10 +10,11 @@ interface CustomButtonProps {
   icon?: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'danger' | 'outline';
     w?: string; // Width class
+    title:string
 }
 
 export default function Custom_Button({
-  children = 'Button',
+  children = '',
   type = 'button',
   onClick,
   className = '',
@@ -22,6 +23,7 @@ export default function Custom_Button({
   icon,
   variant = 'primary',
   w= 'w-full',
+  title
 }: CustomButtonProps) {
   const base = 'btn px-6 py-2 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all duration-200';
   const variants: Record<string, string> = {
@@ -42,6 +44,7 @@ export default function Custom_Button({
       )}
       {icon && <span className="text-lg">{icon}</span>}
       {children}
+      {title}
     </button>
   );
 }

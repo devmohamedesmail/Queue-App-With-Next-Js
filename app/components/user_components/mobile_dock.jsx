@@ -26,14 +26,14 @@ function Mobile_Dock() {
                 <span className="text-xs font-semibold group-hover:text-blue-600">{t('home')}</span>
             </Link>
             <Link
-                href={auth ? '/pages/user/queues' : '/pages/auth/login'}
+                href={auth ? '/user/queues' : '/auth/login'}
                 className="flex flex-col items-center group transition-all hover:text-green-600"
             >
                 <FaPeopleGroup size={28} className="mb-1 group-hover:scale-110 transition-transform" />
                 <span className="text-xs font-semibold group-hover:text-green-600">{t('my-queues')}</span>
             </Link>
             <Link
-                href={auth ? '/pages/user/profile' : '/pages/auth/login'}
+                href={auth ? '/user/profile' : '/auth/login'}
                 className="flex flex-col items-center group transition-all hover:text-purple-600"
             >
                 <FiUser size={28} className="mb-1 group-hover:scale-110 transition-transform" />

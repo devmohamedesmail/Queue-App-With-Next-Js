@@ -1,14 +1,14 @@
 'use client'
 import React, { useContext } from 'react'
 import { PlaceContext } from '../../context/place_context'
-import { AuthContext } from '../../context/auth_context'
 import { useTranslation } from 'react-i18next'
-import { CiUser } from "react-icons/ci";
 import { AiOutlineUser } from "react-icons/ai";
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 import Language_switcher from '../commen_components/language_switcher'
-function Admin_header({ isSidebarOpen, setIsSidebarOpen }) {
+import { AuthContext} from '@/app/context/auth_context'
+
+function Admin_header({ isSidebarOpen, setIsSidebarOpen }:any) {
 
 
 

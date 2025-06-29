@@ -1,5 +1,4 @@
 'use client';
-import Image from "next/image";
 import Navbar from "./components/user_components/navbar";
 import Map from "./components/user_components/map";
 import Footer from "./components/user_components/footer";
