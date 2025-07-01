@@ -11,54 +11,42 @@ export default function Notification_Section() {
   const [open, setOpen] = useState(false);
   const [notifications, setNotifications] = useState<any[]>([]);
   const ref = useRef<HTMLDivElement>(null);
-   const { auth } = useContext(AuthContext); // Assuming you have AuthContext to get user info
+  const { auth } = useContext(AuthContext);
+
+  // Prevent errors if auth or auth.user is null
+  const userId = auth?.user?._id;
+
   // Fetch notifications from backend on mount
- useEffect(() => {
-  async function fetchNotifications() {
-    if (!auth?.user?._id) return;
-
-    try {
-      const res = await axios.get(`${api.baseUrl}api/v1/notifications/user/${auth?.user?._id}`);
-      setNotifications(res.data.notifications || []);
-    } catch (err) {
-      console.error('Error fetching notifications:', err);
+  useEffect(() => {
+    async function fetchNotifications() {
+      if (!userId) return;
+      try {
+        const res = await axios.get(`${api.baseUrl}api/v1/notifications/user/${userId}`);
+        setNotifications(res.data.notifications || []);
+      } catch (err) {
+        console.error('Error fetching notifications:', err);
+      }
     }
-  }
-  fetchNotifications();
-}, [auth?.user?._id])
+    fetchNotifications();
+  }, [userId]);
 
-
-
-useEffect(() => {
-  const socket = io('http://localhost:3000', {
-  transports: ['websocket'], // يجبر على استخدام WebSocket مباشرة بدل polling
-});
-
-  if (auth.user._id) {
-    // ✅ لا تضف prefix `user_`
-    socket.emit('join_room', `user_${auth.user._id}`);
-  }
-
-  socket.on('notification', (data) => {
-    setNotifications((prev) => [
-      { ...data, time: t('admin.notifications.now') || 'now', id: Date.now() },
-      ...prev,
-    ]);
-  });
-
-  return () => {
-    if (auth.user._id) {
-      socket.emit('leave_room', auth.user._id); // أو مع رابط الباكند
-    }
-    socket.disconnect();
-  };
-}, [auth.user._id, t]);
-
-
-
-
-
-
+  useEffect(() => {
+    if (!userId) return;
+    const socket = io('http://localhost:3000', {
+      transports: ['websocket'],
+    });
+    socket.emit('join_room', `user_${userId}`);
+    socket.on('notification', (data) => {
+      setNotifications((prev) => [
+        { ...data, time: t('admin.notifications.now') || 'now', id: Date.now() },
+        ...prev,
+      ]);
+    });
+    return () => {
+      socket.emit('leave_room', `user_${userId}`);
+      socket.disconnect();
+    };
+  }, [userId, t]);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
