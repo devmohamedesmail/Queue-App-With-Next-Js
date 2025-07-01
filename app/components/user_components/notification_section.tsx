@@ -25,7 +25,7 @@ export default function Notification_Section() {
     }
   }
   fetchNotifications();
-}, [auth.userId])
+}, [auth?.user?._id])
 
 
 
