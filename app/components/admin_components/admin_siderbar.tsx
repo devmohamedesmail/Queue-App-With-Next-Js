@@ -12,6 +12,8 @@ import { CgWebsite } from "react-icons/cg";
 import { LiaHandsHelpingSolid } from "react-icons/lia";
 import { DataContext } from '@/app/context/data_context';
 import Sidebar_Item from './sidebar_item';
+import { IoIosNotificationsOutline } from "react-icons/io";
+
 
 function Admin_Siderbar({ isSidebarOpen, setIsSidebarOpen }:any) {
   const { t } = useTranslation();
@@ -42,6 +44,7 @@ function Admin_Siderbar({ isSidebarOpen, setIsSidebarOpen }:any) {
                <Sidebar_Item icon={<IoSettingsOutline />} link="/admin/setting"  title={t('admin.sidebar.setting')} />
                <Sidebar_Item icon={<MdInsertPageBreak />} link="/admin/pages"  title={t('admin.sidebar.pages')} />
                <Sidebar_Item icon={<LiaHandsHelpingSolid />} link="/admin/help"  title={t('admin.sidebar.help')} />
+               <Sidebar_Item icon={<IoIosNotificationsOutline  />} link="/admin/notifications"  title={t('admin.sidebar.notifications')} />
 
 
         </ul>

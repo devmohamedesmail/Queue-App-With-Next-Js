@@ -57,7 +57,7 @@ export default function Place_Srvices({ params }) {
             <div className="container m-auto px-5 my-10">
                 <h2 className="text-center text-xl md:text-3xl font-extrabold mb-8 tracking-tight text-main drop-shadow-sm flex items-center justify-center gap-3">
                     <svg width="32" height="32" fill="none" viewBox="0 0 24 24" className="inline-block text-yellow-400"><path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.07-7.07l-1.41 1.41M6.34 17.66l-1.41 1.41m12.02 0l-1.41-1.41M6.34 6.34L4.93 4.93" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                    {t('select-your-service')}
+                    {t('common.select-your-service')}
                 </h2>
                 {services && services.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

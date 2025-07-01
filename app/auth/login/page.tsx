@@ -44,7 +44,9 @@ export default function Login_Page() {
       try {
         setLoading(true)
         const res = await login(values.email, values.password)
-        const role = res.user.user.user.role;
+        const role = res.user.user.role;
+
+        console.log('Rolee:', role);
         if (res.status === 200) {
           toast.success('✅ Login successful');
           setAuth(res.user.user.user);

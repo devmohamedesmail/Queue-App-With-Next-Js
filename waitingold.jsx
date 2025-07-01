@@ -69,15 +69,24 @@ useEffect(() => {
 
 
 
-  const fetch_waiting_queues = async () => {
+  // const fetch_waiting_queues = async () => {
+  //   try {
+  //     const response = await axios.get(`${api.baseUrl}api/v1/queues/all/queue/${searchParams.placeId}/${searchParams.serviceId}`)
+  //     setWaiting_list(response.data)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+
+   const fetch_waiting_queues = async () => {
     try {
       const response = await axios.get(`${api.baseUrl}api/v1/queues/all/queue/${searchParams.placeId}/${searchParams.serviceId}`)
       setWaiting_list(response.data)
+      console.log("Waiting List:", response.data.estimatedTimeStr)
     } catch (error) {
       console.log(error)
     }
   }
-
 
   useEffect(() => {
     fetch_waiting_queues()
@@ -118,11 +127,12 @@ useEffect(() => {
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-3xl font-extrabold mb-4" style={{ color: 'var(--color-main)' }}>
-              {t('waiting-list')}
+              {t('common.waiting-list')}
             </h1>
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style={{ backgroundColor: 'var(--color-second)' }}>
               <span className="text-2xl font-bold" style={{ color: 'var(--color-main)' }}>
-                {waiting_list && waiting_list.length > 0 ? waiting_list.length : '0'}
+                {/* {waiting_list && waiting_list.length > 0 ? waiting_list.length : '0'} */}
+                {waiting_list && waiting_list.waitingQueues.length > 0 ? waiting_list.waitingQueues.length : '0'}
               </span>
             </div>
             <p className="text-gray-600 text-sm">
@@ -135,7 +145,7 @@ useEffect(() => {
             <div className="flex justify-between items-center">
               <span className="text-gray-700 font-medium">{t('estimated-time')}</span>
               <div className="text-right">
-                {totalEstimatedTime > 0 ? (
+                {/* {totalEstimatedTime > 0 ? (
                   <div>
                     <span className="text-2xl font-bold" style={{ color: 'var(--color-main)' }}>
                       {totalEstimatedTime}
@@ -144,7 +154,8 @@ useEffect(() => {
                   </div>
                 ) : (
                   <span className="text-gray-600">{t('no-waiting-time')}</span>
-                )}
+                )} */}
+                <p>{waiting_list?.estimatedTimeStr}</p>
               </div>
             </div>
           </div>

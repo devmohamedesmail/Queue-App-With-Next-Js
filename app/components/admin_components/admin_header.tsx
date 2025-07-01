@@ -55,7 +55,7 @@ function Admin_Header({ isSidebarOpen, setIsSidebarOpen }:any) {
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow z-50"
                     >
                         <li><a href="">{auth?.user?.user?.name}</a></li>
-                        <li><a><button onClick={() => handle_logout()}>{t('logout')}</button></a></li>
+                       <button className='bg-red-600 text-white w-full py-3 hover:bg-red-700 hover:cursor-pointer' onClick={() => handle_logout()}>{t('user.logout')}</button>
                         
                     </ul>
                 </div>

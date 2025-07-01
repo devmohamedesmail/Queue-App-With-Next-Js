@@ -6,6 +6,7 @@ import axios from 'axios'
 import { api } from '@/app/config/api'
 import { AuthContext } from '@/app/context/auth_context'
 import Custom_Spinner from '@/app/custom/custom_spinner';
+import { FiUsers, FiClock, FiHash } from 'react-icons/fi';
 
 
 function UserQueues() {
@@ -38,84 +39,70 @@ function UserQueues() {
 
 
     return (
-        <div>
-         
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 py-10">
+            <div className="container m-auto px-5">
+                <h1 className="text-center my-10 font-extrabold text-3xl text-main drop-shadow-sm">
+                    {t('user.my-queues')}
+                </h1>
 
-            <div className="container m-auto px-5 my-10">
-
-                <h1 className='text-center my-10 font-bold text-xl'>{t('queues')}</h1>
-
-                {queues && queues.length > 0 ? (
-                    <div className='flex flex-col justify-center items-center my-10'>
-                        <h3 className='font-bold text-md'>{t('your-queues')}</h3>
-                        <h3>{queues.length}</h3>
-                    </div>) : (
-
-                    <>
-                    </>)
-                }
-
-
-              
-
-
-
+                {queues && queues.length > 0 && (
+                    <div className="flex flex-col justify-center items-center my-10">
+                        <div className="flex items-center gap-3 mb-2">
+                            <FiUsers className="text-2xl text-main" />
+                            <h3 className="font-bold text-lg text-main">{t('user.your-queues')}</h3>
+                        </div>
+                        <h3 className="text-2xl font-bold text-main bg-blue-100 rounded-full px-6 py-2 shadow">
+                            {queues.length}
+                        </h3>
+                    </div>
+                )}
 
                 {queues ? (
                     <>
                         {queues && queues.length > 0 ? (
-
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-
-                                {queues.map((queue,index) => (
-                                    <div key={index} className="bg-white shadow rounded-lg p-0 overflow-hidden">
-
-                                        <div className="flex flex-col justify-center items-center bg-green-600 py-4">
-                                            <h4 className='font-bold text-2xl text-white'>{t('ahead-of-you')}</h4>
-                                            <h2 className="text-lg font-bold text-white">{queue.aheadOfYou > 0 ? queue.aheadOfYou : t('no-one')}</h2>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {queues.map((queue, index) => (
+                                    <div key={index} className="bg-white/90 shadow-xl rounded-2xl overflow-hidden border border-blue-100 flex flex-col">
+                                        <div className="flex flex-col justify-center items-center bg-gradient-to-tr from-main to-main/90 py-5">
+                                            <h4 className="font-bold text-lg text-white flex items-center gap-2">
+                                                <FiUsers className="text-xl" /> {t('user.people-ahead')}
+                                            </h4>
+                                            <h2 className="text-2xl font-bold text-white mt-1">
+                                                {queue.aheadOfYou > 0 ? queue.aheadOfYou : t('user.no-waiting')}
+                                            </h2>
                                         </div>
-
-                                        <div className="flex justify-between px-4 py-2">
-                                            <div className='flex flex-col justify-center items-center'>
-                                                <h4>{t('your-queue')}</h4>
-                                                <h2 className="text-lg font-bold">{queue.queue.queue}</h2>
+                                        <div className="flex justify-between px-6 py-4 bg-blue-50">
+                                            <div className="flex flex-col items-center">
+                                                <h4 className="text-main font-semibold flex items-center gap-1"><FiHash />{t('user.your-queue-number')}</h4>
+                                                <h2 className="text-lg font-bold text-main">{queue.queue.queue}</h2>
                                             </div>
-                                            <div className='flex flex-col justify-center items-center'>
-                                                <h4>{t('now-serving')}</h4>
-                                                <h2 className="text-lg font-bold">{queue.nowServingQueue ? queue.nowServingQueue : '---'}</h2>
+                                            <div className="flex flex-col items-center">
+                                                <h4 className="text-main font-semibold flex items-center gap-1"><FiUsers />{t('user.now-serving')}</h4>
+                                                <h2 className="text-lg font-bold text-main">{queue.nowServingQueue ? queue.nowServingQueue : '---'}</h2>
                                             </div>
                                         </div>
-                                        <div className='flex flex-col  justify-center items-center p-2'>
-                                            <h4>{t('estimated-time')}</h4>
-                                            <h2 className="text-lg font-bold">{queue.estimatedTime}</h2>
+                                        <div className="flex flex-col items-center p-4 bg-blue-50 border-t border-blue-100">
+                                            <h4 className="text-main font-semibold flex items-center gap-1"><FiClock />{t('user.estimated-time')}</h4>
+                                            <h2 className="text-lg font-bold text-main">{queue.estimatedTime}</h2>
                                         </div>
                                     </div>
                                 ))}
-
-
-                            </div>) : (
-                                <div className="flex flex-col justify-center items-center">
-                                    <img src="/images/queue.png" className="w-32" />
-                                    <p className='text-center text-xl mt-5'>{t('no-queues-today')}</p>
-                                </div>
+                            </div>
+                        ) : (
+                            <div className="flex flex-col justify-center items-center mt-16">
+                                <span className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-blue-100 mb-6">
+                                    <FiUsers className="text-5xl text-blue-400" />
+                                </span>
+                                <p className="text-center text-xl text-blue-700 font-semibold">{t('user.no-queues-today')}</p>
+                            </div>
                         )}
                     </>
                 ) : (
-                <Custom_Spinner />
+                    <div className="flex justify-center items-center min-h-[200px]">
+                        <Custom_Spinner />
+                    </div>
                 )}
-
-
-
-
-
-
-
-
             </div>
-
-
-
-      
         </div>
     )
 }

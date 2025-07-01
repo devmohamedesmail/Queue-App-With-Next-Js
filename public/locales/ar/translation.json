@@ -124,7 +124,13 @@
 		"image": " صورة",
 		"no-data": " لا توجد بيانات متاحة.",
 		"confirm-delete-user": " هل أنت متأكد أنك تريد حذف هذا المستخدم؟",
-		"search": " بحث "
+		"search": " بحث ",
+		"close": " إغلاق ",
+		"details": " عرض التفاصيل ",
+		"view-details": " عرض التفاصيل ",
+		"browse-places": " تصفح الأماكن ",
+		"view-services": "عرض الخدمات",
+		"select-your-service": " اختر خدمتك "
 	},
 	"user": {
 		"welcome": " مرحبًا بك في تطبيق قوائم الانتظار",
@@ -132,7 +138,24 @@
 		"view-statistics": " عرض إحصائيات مفصلة عن قوائم الانتظار الخاصة بك",
 		"settings": " تخصيص إعداداتك",
 		"notifications": "ابق على اطلاع بالإشعارات",
-		"help-support": " تحتاج إلى مساعدة؟ اتصل بالدعم"
+		"help-support": " تحتاج إلى مساعدة؟ اتصل بالدعم",
+		"home": " الرئيسية  ",
+		"my-queues": " ادوار انتظاري ",
+		"login-register": " تسجيل الدخول / التسجيل ",
+		"account": " الحساب ",
+		"dashboard": " لوحة التحكم ",
+		"logout": " تسجيل الخروج ",
+		"waiting-list": "قائمة الانتظار",
+		"people-ahead": "عدد الأشخاص قبلك",
+		"no-waiting": "لا توجد فترة انتظار حالياً",
+		"estimated-time": "الوقت المُقدَّر",
+		"book-queue": "احجز دورك",
+		"last-queue-number": "آخر رقم في الدور",
+		"queue-booked-success": "تم حجز الدور بنجاح!",
+		"your-queues": "أدوارك",
+		"your-queue-number": "رقم دورك",
+		"now-serving": "يتم الخدمة الآن",
+		"no-queues-today": " لا توجد أدوار اليوم"
 	},
 	"admin": {
 		"sidebar": {
@@ -143,7 +166,8 @@
 			"pages": "الصفحات",
 			"help": "المساعدة",
 			"visit-site": "زيارة الموقع",
-			"home": "الرئيسية"
+			"home": "الرئيسية",
+			"notifications": " الإشعارات "
 		},
 		"places": {
 			"show-places": " عرض الأماكن",
@@ -231,6 +255,26 @@
 			"role": "الدور",
 			"no-users": "لم يتم العثور على مستخدمين.",
 			"view-user": "عرض المستخدم"
+		},
+		"notifications": {
+			"title": "الإشعارات",
+			"send-notification": "إرسال إشعار",
+			"notification-title": "عنوان الإشعار",
+			"notification-content": "محتوى الإشعار",
+			"send": "إرسال",
+			"notification-success": "تم إرسال الإشعار بنجاح!",
+			"notification-failed": "فشل في إرسال الإشعار.",
+			"no-notifications": "لا توجد إشعارات.",
+			"recipient": "المستلم",
+			"select-recipient": "اختر المستلم",
+			"all-users": "جميع المستخدمين",
+			"selected-users": "مستخدمين محددين",
+			"notification-type": "نوع الإشعار",
+			"push-notification": "إشعار فوري",
+			"email-notification": "إشعار بالبريد الإلكتروني",
+			"sms-notification": "إشعار برسالة نصية",
+			"notification-sent": "تم إرسال الإشعار بنجاح!",
+			"message": "الرسالة"
 		}
 	}
 }

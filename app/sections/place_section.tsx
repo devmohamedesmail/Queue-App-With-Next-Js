@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import Place_Item from '../items/place_item';
 import { PlaceContext } from '../context/place_context';
 import { useTranslation } from 'react-i18next';
+import Custom_Section_Title from '../custom/custom_section_title';
 
 export default function Place_Section() {
     const { places }: any = useContext(PlaceContext);
@@ -14,7 +15,8 @@ export default function Place_Section() {
 
     return (
         <div className='container m-auto px-5 my-10'>
-            <h6 className='font-bold mb-5 text-2xl'>{t('places')}</h6>
+            
+            <Custom_Section_Title title={t('common.browse-places')} />
             {places ? (<>
                 {places && places.length > 0 ? (<div className='grid grid-cols-2 md:grid-cols-4 gap-2'>
                     {places && places.length > 0 && places.map((place: any, index: number) => (
