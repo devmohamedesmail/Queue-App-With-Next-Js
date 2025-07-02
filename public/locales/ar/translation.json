@@ -42,6 +42,21 @@
 			"cancel-queue": "إلغاء الدور",
 			"no-queues-desc": "لا توجد قوائم انتظار حالياً. يرجى المحاولة لاحقًا."
 		},
+		"employees": {
+			"title": " الموظفون ",
+			"add-employee": " إضافة موظف ",
+			"employee-name": " اسم الموظف ",
+			"employee-email": " البريد الإلكتروني للموظف ",
+			"employee-phone": " رقم هاتف الموظف ",
+			"employee-role": " دور الموظف ",
+			"employee-status": " حالة الموظف ",
+			"active": " نشط ",
+			"inactive": " غير نشط ",
+			"edit-employee": " تحرير الموظف ",
+			"delete-employee": " حذف الموظف ",
+			"no-employees": " لا توجد موظفين ",
+			"no-employees-desc": " لا يوجد موظفون مسجلون حتى الآن. يرجى إضافة موظف لإدارة قوائم الانتظار. "
+		},
 		"statistics": {
 			"title": "الإحصائيات",
 			"total-queues": "إجمالي قوائم الانتظار",
@@ -155,7 +170,10 @@
 		"your-queues": "أدوارك",
 		"your-queue-number": "رقم دورك",
 		"now-serving": "يتم الخدمة الآن",
-		"no-queues-today": " لا توجد أدوار اليوم"
+		"no-queues-today": " لا توجد أدوار اليوم",
+		"select-this-service": " اختر هذه الخدمة ",
+		"no-notifications": " لا توجد إشعارات متاحة ",
+		"notification": " الإشعارات "
 	},
 	"admin": {
 		"sidebar": {

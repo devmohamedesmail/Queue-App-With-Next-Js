@@ -60,7 +60,7 @@ export default function Footer() {
                     </ul>
                 </div>
             </div>
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mt-12 border-t border-gray-800 pt-6 text-xs text-gray-500">
+            <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mt-12 border-t border-gray-800 pt-6 text-xs text-gray-500 pb-20">
                 <span>© 2025 Q me. All rights reserved.</span>
                 <span className="mt-2 md:mt-0">Made with <span className="text-yellow-400">♥</span> by the Q me Team</span>
             </div>

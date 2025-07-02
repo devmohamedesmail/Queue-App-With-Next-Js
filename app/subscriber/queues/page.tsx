@@ -16,8 +16,8 @@ function Place_Services() {
 
   useEffect(() => {
 
-    if (auth?.user?.user?.placeId && places?.length) {
-      const place = places.find((place) => place._id === auth.user.user.placeId);
+    if (auth?.user?.placeId && places?.length) {
+      const place = places.find((place) => place._id === auth.user.placeId);
       if (place) {
         setPlace(place);
       }

@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 import { PlaceContext } from '../../context/place_context'
 import { useTranslation } from 'react-i18next'
 import { AiOutlineUser } from "react-icons/ai";
+import { FiUser, FiMail, FiLogOut } from "react-icons/fi";
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 import Language_switcher from '../commen_components/language_switcher'
@@ -22,10 +23,10 @@ function Admin_Header({ isSidebarOpen, setIsSidebarOpen }:any) {
             setAuth(null);
             localStorage.removeItem('user');
             router.push('/')
-            console.log("logout")
-            toast.success(t('logout-success'));
+           
+            toast.success(t('common.logout-success'));
         } catch (error) {
-            console.log("Logout error:", error);
+            toast.success(t('common.error-occurred'));
         }
     }
 
@@ -52,11 +53,31 @@ function Admin_Header({ isSidebarOpen, setIsSidebarOpen }:any) {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow z-50"
+                        className="menu menu-sm dropdown-content bg-white rounded-2xl mt-3 w-72 p-0 shadow-xl border border-gray-100 z-50"
                     >
-                        <li><a href="">{auth?.user?.user?.name}</a></li>
-                       <button className='bg-red-600 text-white w-full py-3 hover:bg-red-700 hover:cursor-pointer' onClick={() => handle_logout()}>{t('user.logout')}</button>
-                        
+                        <div className="px-4 py-3 border-b border-gray-100">
+                            <div className="flex items-center gap-3 mb-2">
+                                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                                    <FiUser className="text-blue-600 text-xl" />
+                                </div>
+                                <div>
+                                    <p className="font-semibold text-gray-800">{auth?.user?.name}</p>
+                                    <div className="flex items-center gap-1 text-sm text-gray-500">
+                                        <FiMail className="text-xs" />
+                                        <p>{auth?.user?.email}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="p-2">
+                            <button 
+                                className='flex items-center gap-3 w-full px-3 py-3 text-red-600 hover:bg-red-50 rounded-xl transition font-semibold' 
+                                onClick={() => handle_logout()}
+                            >
+                                <FiLogOut className="text-xl" />
+                                {t('user.logout')}
+                            </button>
+                        </div>
                     </ul>
                 </div>
             </div>

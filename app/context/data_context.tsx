@@ -25,7 +25,7 @@ const DataProvider = ({ children }: any) => {
             setPages(res.data.data)
             
         } catch (error) {
-            console.log("error fetch page", error)
+           
         }
     }
 
@@ -35,7 +35,7 @@ const DataProvider = ({ children }: any) => {
             setSettings(response.data.data); 
             
         } catch (err) { 
-            console.log("Error",err); 
+            
         }
     }
 

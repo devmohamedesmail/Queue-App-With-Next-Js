@@ -124,7 +124,22 @@ function Employees() {
 
       <div className="mt-6 space-y-4">
         {employees.length === 0 ? (
-          <div>{t('no-employees')}</div>
+          <div className="flex flex-col items-center justify-center py-16 px-8 bg-white/90 rounded-2xl border border-gray-200 shadow-sm">
+            <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+              <FaUser className="text-blue-500 text-3xl" />
+            </div>
+            <h3 className="text-xl font-bold text-gray-800 mb-2">{t('subscriber.employees.no-employees')}</h3>
+            <p className="text-gray-500 text-center mb-6 max-w-md">
+              {t('subscriber.employees.no-employees-desc', 'You haven\'t added any employees yet. Click the button above to add your first employee.')}
+            </p>
+            <button 
+              className="btn text-white bg-main hover:bg-main/90 transition-colors duration-200"
+              onClick={() => document.getElementById('my_modal_3').showModal()}
+            >
+              <FaPlus />
+              {t('subscriber.employees.add-employee')}
+            </button>
+          </div>
         ) : (
           employees.map((emp) => (
             <div

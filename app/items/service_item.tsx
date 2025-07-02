@@ -36,7 +36,7 @@ export default function Service_Item({ service, index }: any) {
                         query: { placeId: service.placeId, serviceId: service._id }
                     }}
                 >
-                    {t('select-this-service', 'Select this service')}
+                    {t('user.select-this-service', 'Select this service')}
                     <FaChevronRight />
                 </Link>
             </div>

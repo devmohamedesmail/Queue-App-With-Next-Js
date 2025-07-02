@@ -36,7 +36,7 @@ export default function Drawer() {
             <div className="drawer drawer-end">
                 <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
-                    <label htmlFor="my-drawer-4" className="drawer-button btn bg-main text-white btn-ghost">
+                    <label htmlFor="my-drawer-4" className="drawer-button btn bg-main w-10 h-10 p-0 text-white btn-ghost">
                         <span className="sr-only">Open menu</span>
                         <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
                     </label>

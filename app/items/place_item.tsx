@@ -27,7 +27,7 @@ export default function Place_Item({ place }: { place: any }) {
       <div className="flex flex-col items-center p-5">
         <h2 className="text-sm md:text-lg font-semibold text-gray-800 text-center mb-2 text-sm h-18">{place?.nameEn || t('no-name')}</h2>
         <p className="text-gray-500 text-sm text-center mb-4 text-xs h-18">{place?.addressEn || t('no-address')}</p>
-        <div className="flex w-full gap-2">
+        <div className="flex flex-col w-full gap-2">
           <Link
             className="flex-1 text-xs flex items-center justify-center gap-2 py-2 rounded-lg bg-main text-white font-semibold shadow hover:from-blue-600 hover:to-indigo-700 transition"
             href={`/user/services/${place?._id || ''}`}
@@ -35,7 +35,7 @@ export default function Place_Item({ place }: { place: any }) {
             {t('common.view-services')}
           </Link>
           <Link
-            className="flex items-center justify-center w-12 h-12 rounded-lg bg-second shadow hover:from-green-600 hover:to-emerald-700 transition"
+            className="flex-1 text-xs flex items-center justify-center gap-2 py-2 rounded-lg bg-black text-white font-semibold shadow hover:from-blue-600 hover:to-indigo-700 transition"
             href={place?.locationlink || '#'}
             target="_blank"
             rel="noopener noreferrer"

@@ -29,7 +29,7 @@ function Statistics_Page() {
   };
 
   useEffect(() => {
-    const placeId = auth?.user?.user?.placeId;
+    const placeId = auth?.user?.placeId;
     if (placeId) {
       fetch_queues_for_place(placeId);
     }

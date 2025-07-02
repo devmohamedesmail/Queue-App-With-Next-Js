@@ -53,7 +53,9 @@
 			"active": "Active",
 			"inactive": "Inactive",
 			"edit-employee": "Edit Employee",
-			"delete-employee": "Delete Employee"
+			"delete-employee": "Delete Employee",
+			"no-employees": "No employees found.",
+			"no-employees-desc": "There are no employees registered yet. Please add an employee to manage queues."
 		},
 		"statistics": {
 			"title": "Statistics",
@@ -170,7 +172,10 @@
 		"your-queues": "Your Queues",
 		"your-queue-number": "Your Queue Number",
 		"now-serving": "Now Serving",
-		"no-queues-today": "No queues today"
+		"no-queues-today": "No queues today",
+		"select-this-service": "Select this service",
+		"no-notifications": "No notifications available",
+		"notification": "Notifications"
 	},
 	"admin":{
 		"sidebar": {

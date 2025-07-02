@@ -7,6 +7,7 @@ import { api } from '@/app/config/api'
 import { AuthContext } from '@/app/context/auth_context'
 import Custom_Spinner from '@/app/custom/custom_spinner';
 import { FiUsers, FiClock, FiHash } from 'react-icons/fi';
+import { toast } from 'react-toastify';
 
 
 function UserQueues() {
@@ -23,13 +24,14 @@ function UserQueues() {
                 setQueues([]);
             }
         } catch (error) {
+            toast.error(t('common.error-occurred'));
             setQueues([]);
-            console.log("Error fetching queues", error);
+            
         }
     };
 
     useEffect(() => {
-        const userId = auth?.user?.user?._id;
+        const userId = auth?.user?._id;
         if (userId) {
             fetch_queues(userId);
         } else {

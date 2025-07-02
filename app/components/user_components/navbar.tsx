@@ -175,10 +175,10 @@ function Navbar() {
                     ) : (
                         <Link
                             href="/auth/login"
-                            className="btn btn-primary bg-main outline-none border-none btn-sm rounded-lg mb-2 hover:btn-primary-focus transition-colors"
+                            className="btn btn-primary bg-main outline-none border-none btn-sm rounded-full w-12 h-12 p-0 hover:btn-primary-focus transition-colors"
                         >
                             <AiOutlineUserSwitch size={16} />
-                            {/* {t('login-register')} */}
+                            
                         </Link>
                     )}
                 </div>

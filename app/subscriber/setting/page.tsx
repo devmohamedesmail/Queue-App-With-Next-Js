@@ -29,8 +29,8 @@ function Setting_Page() {
 
   useEffect(() => {
     // Ensure places is an array and auth is valid
-    if (places.length > 0 && auth?.user?.user?.placeId) {
-      const matchedPlace = places.find((p: any) => p._id === auth.user.user.placeId);
+    if (places.length > 0 && auth?.user?.placeId) {
+      const matchedPlace = places.find((p: any) => p._id === auth.user.placeId);
       setPlace(matchedPlace || null);
 
       if (matchedPlace) {
@@ -158,7 +158,7 @@ function Setting_Page() {
   };
 
   if (!place) {
-    return <div>Loading...</div>;
+    return <Custom_Spinner />;
   }
 
   return (

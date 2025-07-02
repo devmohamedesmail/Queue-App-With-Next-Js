@@ -29,8 +29,8 @@ export default function Waiting_Queues(props: any) {
   const { t } = useTranslation()
 
   
- 
-
+//  console.log("Auth", auth?.user?.user._id)
+console.log(auth.user._id)
 
 
   const handle_book_now = async () => {
@@ -39,8 +39,8 @@ export default function Waiting_Queues(props: any) {
       if (auth) {
         try {
           setLoading(true)
-          const res = await axios.post(`${api.baseUrl}api/v1/queues/book/new/queue/${auth.user.user._id}/${searchParams.placeId}/${searchParams.serviceId}`)
-          console.log("res", res)
+          const res = await axios.post(`${api.baseUrl}api/v1/queues/book/new/queue/${auth.user._id}/${searchParams.placeId}/${searchParams.serviceId}`)
+          
           if (res.status === 201) {
             setLoading(false)
             toast.success(t('user.queue-booked-success'))
@@ -51,6 +51,7 @@ export default function Waiting_Queues(props: any) {
         } catch (error) {
           toast.error(t('common.error-occurred'))
           setLoading(false)
+          console.log("Error booking queue", error)
         } finally {
           setLoading(false)
         }

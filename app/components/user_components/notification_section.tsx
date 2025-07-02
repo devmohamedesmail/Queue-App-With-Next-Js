@@ -5,6 +5,7 @@ import axios from 'axios';
 import io from 'socket.io-client';
 import { api } from '@/app/config/api';
 import { AuthContext } from '@/app/context/auth_context';
+import Notication_Item from '@/app/items/notication_item';
 
 export default function Notification_Section() {
   const { t } = useTranslation();
@@ -79,23 +80,17 @@ export default function Notification_Section() {
       {open && (
         <div className="absolute right-0 mt-2 w-80 max-w-xs bg-white/80 backdrop-blur-lg shadow-xl rounded-xl z-50 overflow-hidden animate-fade-in border border-gray-200">
           <div className="px-4 py-3 border-b border-gray-100 font-semibold text-gray-700 bg-white/60">
-            {t('admin.notifications.title') || 'Notifications'}
+            {t('user.notification')}
           </div>
           <ul className="max-h-72 overflow-y-auto divide-y divide-gray-100">
             {notifications.length === 0 ? (
               <li className="py-8 flex flex-col items-center justify-center text-gray-400">
                 <FiBell className="text-4xl mb-2" />
-                <span>{t('admin.notifications.no-notifications') || 'No notifications'}</span>
+                <span>{t('user.no-notifications')}</span>
               </li>
             ) : (
               notifications.map((n) => (
-                <li
-                  key={n.id}
-                  className="px-4 py-3 hover:bg-gray-50 cursor-pointer transition flex flex-col gap-1"
-                >
-                  <span className="text-sm text-gray-800">{n.title || n.message}</span>
-                  <span className="text-xs text-gray-400">{n.time || ''}</span>
-                </li>
+               <Notication_Item n={n} key={n._id} />
               ))
             )}
           </ul>
