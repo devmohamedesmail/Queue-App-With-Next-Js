@@ -46,7 +46,7 @@ export default function Login_Page() {
         const res = await login(values.email, values.password)
         const role = res.user.user.role;
 
-        console.log('Rolee:', role);
+        
         if (res.status === 200) {
           toast.success('✅ Login successful');
           setAuth(res.user.user.user);
@@ -62,7 +62,7 @@ export default function Login_Page() {
           }
         }
       } catch (err) {
-        console.log(err);
+        toast.error(t('common.login-failed'));
       } finally {
         setLoading(false);
       }

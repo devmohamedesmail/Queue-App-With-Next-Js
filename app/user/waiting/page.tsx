@@ -7,7 +7,9 @@ import { useTranslation } from 'react-i18next'
 import { toast } from 'react-toastify'
 import { AuthContext } from '@/app/context/auth_context'
 import Custom_Spinner from '@/app/custom/custom_spinner'
-import { FiUsers, FiClock, FiHash, FiCheckCircle } from 'react-icons/fi';
+import { FiUsers, FiClock, FiHash, FiCheckCircle, FiArrowLeft, FiMapPin } from 'react-icons/fi';
+import { HiSparkles } from 'react-icons/hi';
+import { MdQueryBuilder, MdPeople, MdLocationOn } from 'react-icons/md';
 
 
 export default function Waiting_Queues(props: any) {
@@ -86,66 +88,161 @@ export default function Waiting_Queues(props: any) {
 
 
   return (
-    <section className="w-full min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-gray-100">
-      <div className="max-w-md w-full mx-auto">
-        <div className="bg-white/90 shadow-2xl rounded-3xl p-8 border border-gray-100 backdrop-blur-xl">
-          {/* Header */}
-          <div className="text-center mb-8">
-            <h1 className="text-4xl font-extrabold mb-2 text-main drop-shadow-sm">
-              {t('user.waiting-list')}
-            </h1>
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-4 bg-gradient-to-tr from-blue-200 to-blue-50 shadow">
-              <FiUsers className="text-3xl text-main" />
-              <span className="text-3xl font-bold ml-2 text-main">
-                {waiting_list && waiting_list.waitingQueues && waiting_list.waitingQueues.length > 0 ? waiting_list.waitingQueues.length : '0'}
-              </span>
-            </div>
-            <p className="text-gray-500 text-base font-medium">
-              {waiting_list && waiting_list.waitingQueues && waiting_list.waitingQueues.length > 0 ? t('user.people-ahead') : t('user.no-waiting')}
-            </p>
-          </div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-20 -left-20 w-32 h-32 bg-gradient-to-br from-indigo-400/20 to-pink-400/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-gradient-to-br from-yellow-400/10 to-orange-400/10 rounded-full blur-2xl"></div>
+      </div>
 
-          {/* Estimated Time */}
-          <div className="bg-main/5 rounded-xl p-6 mb-6 flex items-center gap-4 shadow-sm">
-            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-100">
-              <FiClock className="text-xl text-main" />
-            </span>
-            <div className="flex-1">
-              <span className="block text-gray-700 font-semibold">{t('user.estimated-time')}</span>
-              <span className="block text-main text-lg font-bold">{waiting_list?.estimatedTimeStr || '-'}</span>
-            </div>
-          </div>
+      <div className="relative z-10 container mx-auto px-4 py-8 flex items-center justify-center min-h-screen">
+        <div className="w-full max-w-lg">
+          {/* Back Button */}
+          <button
+            onClick={() => router.back()}
+            className="mb-6 flex items-center gap-2 text-gray-600 hover:text-gray-800 transition-colors duration-200 group"
+          >
+            <FiArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-200" />
+            <span className="font-medium">{t('common.back', 'Back')}</span>
+          </button>
 
-          {/* Last Queue Number */}
-          <div className="bg-main/5 rounded-xl p-6 mb-8 flex items-center gap-4 shadow-sm">
-            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-100">
-              <FiHash className="text-xl text-main" />
-            </span>
-            <div className="flex-1">
-              <span className="block text-gray-700 font-semibold">{t('user.last-queue-number')}</span>
-              <span className="block text-blue-700 text-lg font-bold">{waiting_list?.lastWaitingQueue || '-'}</span>
-            </div>
-          </div>
-
-          {/* Book Button */}
-          <div className="text-center">
-            {loading ? (
-              <div className="flex justify-center py-4">
-                <Custom_Spinner />
+          {/* Main Card */}
+          <div className="bg-white/80 backdrop-blur-xl shadow-2xl rounded-3xl border border-white/20 overflow-hidden">
+            {/* Header Section */}
+            <div className="relative bg-gradient-to-br from-blue-600 to-purple-600 p-8 text-white">
+              {/* Decorative elements */}
+              <div className="absolute top-4 right-4 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                <HiSparkles className="w-4 h-4" />
               </div>
-            ) : (
-              <button
-                onClick={handle_book_now}
-                className="w-full py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 bg-gradient-to-tr from-main to-main/90"
-                style={{ color: 'white', border: 'none' }}
-              >
-                <FiCheckCircle className="text-2xl" />
-                {t('user.book-queue')}
-              </button>
-            )}
+              <div className="absolute bottom-4 left-4 w-3 h-3 bg-white/30 rounded-full"></div>
+              
+              <div className="text-center relative z-10">
+                <h1 className="text-3xl font-bold mb-2">
+                  {t('user.waiting-list')}
+                </h1>
+                <p className="text-blue-100 text-sm font-medium">
+                  {t('user.services.queue-info', 'Join the queue and track your position in real-time')}
+                </p>
+              </div>
+            </div>
+
+            {/* Content Section */}
+            <div className="p-8">
+              {/* Queue Status */}
+              <div className="text-center mb-8">
+                <div className="relative inline-block">
+                  <div className="w-28 h-28 bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl flex items-center justify-center shadow-xl mb-4 relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-500 rounded-3xl opacity-0 hover:opacity-100 transition-all duration-300 blur-sm"></div>
+                    <div className="relative z-10 text-center">
+                      <MdPeople className="text-3xl text-white mb-1" />
+                      <span className="text-2xl font-bold text-white">
+                        {waiting_list && waiting_list.waitingQueues && waiting_list.waitingQueues.length > 0 
+                          ? waiting_list.waitingQueues.length 
+                          : '0'
+                        }
+                      </span>
+                    </div>
+                  </div>
+                  {/* Floating indicator */}
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+                    <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                  </div>
+                </div>
+                
+                <h2 className="text-xl font-bold text-gray-800 mb-2">
+                  {waiting_list && waiting_list.waitingQueues && waiting_list.waitingQueues.length > 0 
+                    ? t('user.people-ahead') 
+                    : t('user.no-waiting')
+                  }
+                </h2>
+                <p className="text-gray-500 text-sm">
+                  {waiting_list && waiting_list.waitingQueues && waiting_list.waitingQueues.length > 0 
+                    ? 'You\'ll be notified when it\'s your turn'
+                    : 'Perfect timing! No wait required'
+                  }
+                </p>
+              </div>
+
+              {/* Stats Cards */}
+              <div className="space-y-4 mb-8">
+                {/* Estimated Time Card */}
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100/50 group hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <MdQueryBuilder className="text-2xl text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-gray-800 mb-1">{t('user.estimated-time')}</h3>
+                      <p className="text-2xl font-bold text-blue-600">
+                        {waiting_list?.estimatedTimeStr || 'Calculating...'}
+                      </p>
+                      <p className="text-xs text-gray-500 mt-1">Average wait time</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Queue Number Card */}
+                <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-100/50 group hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <FiHash className="text-2xl text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-gray-800 mb-1">{t('user.last-queue-number')}</h3>
+                      <p className="text-2xl font-bold text-purple-600">
+                        #{waiting_list?.lastWaitingQueue || '---'}
+                      </p>
+                      <p className="text-xs text-gray-500 mt-1">Currently serving</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Button */}
+              <div className="text-center">
+                {loading ? (
+                  <div className="w-full py-6 rounded-2xl bg-gray-100 flex items-center justify-center">
+                    <Custom_Spinner />
+                  </div>
+                ) : (
+                  <button
+                    onClick={handle_book_now}
+                    className="group relative w-full py-6 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white overflow-hidden"
+                  >
+                    {/* Button background animation */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                    
+                    {/* Button content */}
+                    <div className="relative z-10 flex items-center gap-3">
+                      <FiCheckCircle className="text-2xl group-hover:rotate-12 transition-transform duration-300" />
+                      <span>{t('user.book-queue')}</span>
+                    </div>
+                    
+                    {/* Shimmer effect */}
+                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-in-out"></div>
+                  </button>
+                )}
+              </div>
+
+              {/* Additional Info */}
+              <div className="mt-6 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <div className="flex items-center justify-center gap-2 text-gray-500 text-sm">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <span>Live queue updates</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Info */}
+          <div className="mt-6 text-center">
+            <p className="text-gray-500 text-sm">
+              You'll receive a notification when it's almost your turn
+            </p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   )
 }

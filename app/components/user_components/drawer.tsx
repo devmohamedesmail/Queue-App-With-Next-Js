@@ -33,7 +33,7 @@ export default function Drawer() {
     }
     return (
         <div className="md:hidden flex-none">
-            <div className="drawer drawer-end">
+            <div className="drawer drawer-end ">
                 <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
                     <label htmlFor="my-drawer-4" className="drawer-button btn bg-main w-10 h-10 p-0 text-white btn-ghost">
@@ -41,19 +41,24 @@ export default function Drawer() {
                         <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
                     </label>
                 </div>
-                <div className="drawer-side">
+                <div className="drawer-side ">
                     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+                    <ul className="menu ] bg-base-200 relative text-base-content min-h-full w-80 p-4">
                         <Drawer_Home_Item title={t('user.home')} href='/' icon={<IoHomeOutline />} className='mb-2' />
                         <Drawer_Home_Item title={t('user.my-queues')} href={`${auth ? '/user/queues' : '/auth/login'}`} icon={<IoMdTime />} className='mb-2' />
 
-                        <li className="mb-2">
-                            <Language_Switcher />
-                        </li>
-                        {auth ? (
+
+
+                     
+                       
+
+                        <div className=' w-full  absolute bottom-20'>
+                             
+                             <div className='mb-2'>
+                                  <Language_Switcher />
+                             </div>
+                              {auth ? (
                             <>
-
-
                                 {auth?.user?.role === 'user' && (
                                     <li>
                                         <Link href="/user/profile" className="flex items-center gap-3 justify-center bg-main py-3 text-white  rounded-lg transition-colors">
@@ -95,6 +100,7 @@ export default function Drawer() {
                                 </Link>
                             </li>
                         )}
+                        </div>
                     </ul>
                 </div>
             </div>

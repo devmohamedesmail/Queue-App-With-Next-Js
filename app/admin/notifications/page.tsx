@@ -8,6 +8,7 @@ import { api } from '@/app/config/api';
 import { useTranslation } from 'react-i18next';
 import Custom_Spinner from '@/app/custom/custom_spinner';
 import Select from 'react-select';
+import { toast } from 'react-toastify';
 
 export default function Notifications() {
   const { t } = useTranslation();
@@ -52,6 +53,7 @@ export default function Notifications() {
       setTitle('');
       setMessage('');
       setSelectedUser('all');
+      toast.success(t('common.notification-sent'));
     } catch (err) {
       setError(t('common.error-occurred'));
     } finally {

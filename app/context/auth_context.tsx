@@ -2,6 +2,9 @@
 import React, { createContext, useState, useEffect, Dispatch, SetStateAction, ReactNode } from 'react';
 import axios from 'axios';
 import { api } from '../config/api';
+import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
+import { Router } from 'next/router';
 
 
 
@@ -26,6 +29,7 @@ const AuthContext = createContext<AuthContextType>({
 
 const AuthProvider = ({ children }:any) => {
     const [auth, setAuth] = useState<any>(null);
+    const { t } = useTranslation();
 
 
     // Load auth from storage on app start
@@ -89,7 +93,8 @@ const AuthProvider = ({ children }:any) => {
         try {
             setAuth(null);
             localStorage.removeItem('user');
-
+            toast.success(t('common.logout-success') || 'Logout successful');
+            
             return { success: true };
         } catch (error: any) {
             console.error('Logout error:', error.message);

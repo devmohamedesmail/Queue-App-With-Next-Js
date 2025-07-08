@@ -1,8 +1,9 @@
 'use client'
 import Link from 'next/link';
 import React, { useContext, useState, useEffect } from 'react';
-import { AiOutlineUser, AiOutlineSearch, AiOutlineGlobal, AiOutlineLogout, AiOutlineDashboard, AiOutlineUserSwitch } from "react-icons/ai";
+import { AiOutlineUser, AiOutlineSearch, AiOutlineGlobal, AiOutlineLogout, AiOutlineDashboard, AiOutlineUserSwitch  } from "react-icons/ai";
 import { HiOutlineTranslate } from "react-icons/hi";
+import { MdAccountCircle , MdOutlineEmail } from "react-icons/md";
 import { api } from '../../config/api';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
@@ -112,7 +113,7 @@ function Navbar() {
                                 <div className="w-8 rounded-full ring-2 ring-primary ring-offset-2 ring-offset-base-100">
                                     {auth?.user?.user?.avatar ? (
                                         <img
-                                            src={auth.user.user.avatar}
+                                            src={auth.user.avatar}
                                             alt="Avatar"
                                             className="w-full h-full object-cover"
                                         />
@@ -128,16 +129,24 @@ function Navbar() {
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-64 p-3 shadow-xl border border-base-200"
                             >
                                 {/* User Info Header */}
-                                <li className="menu-title px-3 py-2 bg-main border-b border-base-200 mb-2">
+                                <li className="menu-title px-3 py-2  border-b border-base-200 mb-2">
                                     <div className="flex flex-col">
-                                        <span className="font-semibold text-sm text-white">{auth?.user?.user?.name || 'User'}</span>
-                                        <span className="text-xs text-base-content/60 truncate text-white">{auth?.user?.user?.email}</span>
+                                        <div className='flex items-center gap-2 mb-2'>
+                                            <p><MdAccountCircle size={18} color='#000' /></p>
+                                            <p className='text-black'>{auth?.user?.name}</p>
+                                        </div>
+                                        <div className='flex items-center gap-2 mb-2'>
+                                            <p><MdOutlineEmail size={18} color='#000' /></p>
+                                            <p className='text-black'>{auth?.user?.email}</p>
+                                        </div>
+                                        
+                                        
                                     </div>
                                 </li>
 
                                 {/* Menu Items */}
                                
-                                 {auth?.user?.user?.role === 'user' && (
+                                 {auth?.user?.role === 'user' && (
                                      <li>
                                     <Link
                                         href="/user/profile"
