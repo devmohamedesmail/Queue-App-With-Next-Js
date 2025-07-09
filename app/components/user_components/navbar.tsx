@@ -158,10 +158,21 @@ function Navbar() {
                                 </li>
                                 )}
 
-                                {auth?.user?.user?.role === 'admin' && (
+                                {auth?.user?.role === 'admin' && (
                                     <li>
                                         <Link
                                             href="/pages/admin/"
+                                            className="flex items-center gap-3 hover:bg-base-200 rounded-lg transition-colors bg-main py-3 text-white hover:bg-main/90"
+                                        >
+                                            <AiOutlineDashboard size={18} />
+                                            <span>{t('dashboard')}</span>
+                                        </Link>
+                                    </li>
+                                )}
+                                {auth?.user?.role === 'subscriber' && (
+                                    <li>
+                                        <Link
+                                            href="/pages/subscriber/"
                                             className="flex items-center gap-3 hover:bg-base-200 rounded-lg transition-colors bg-main py-3 text-white hover:bg-main/90"
                                         >
                                             <AiOutlineDashboard size={18} />

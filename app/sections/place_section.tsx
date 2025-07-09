@@ -14,7 +14,7 @@ export default function Place_Section() {
 
 
     return (
-        <div className='container m-auto px-5 my-10'>
+        <div className='container m-auto px-3 my-10'>
             
             <Custom_Section_Title title={t('common.browse-places')} />
             {places ? (<>

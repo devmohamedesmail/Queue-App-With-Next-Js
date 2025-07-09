@@ -13,8 +13,8 @@ export default function Notication_Item({ n }: { n: any }) {
                 <span className="block text-base font-semibold text-gray-800 truncate">
                     {n.title || n.message}
                 </span>
-                <span className="block text-xs text-gray-400 mt-1">
-                    {n.time || ''}
+                <span className="flex justify-between text-xs text-gray-400 mt-1">
+                    {n.message || ''} {n.createdAt ? new Date(n.createdAt).toLocaleString() : ''}
                 </span>
             </div>
         </li>

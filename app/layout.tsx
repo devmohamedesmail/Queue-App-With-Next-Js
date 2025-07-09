@@ -12,6 +12,29 @@ import ClientWrapper from "./components/commen_components/clientwrapper";
 export const metadata: Metadata = {
   title: "Queue App",
   description: "Queue App is a Next.js application that allows users to manage queues efficiently.",
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+    other: [
+      { rel: 'icon', url: '/images/image.png', sizes: '16x16' },
+      { rel: 'icon', url: '/images/image.png', sizes: '32x32' },
+      { rel: 'icon', url: '/images/image.png', sizes: '48x48' },
+      { rel: 'icon', url: '/images/image.png', sizes: '64x64' },
+    ],
+  },
+  metadataBase: new URL('https://queue-app-website.vercel.app'),
+  openGraph: {
+    title: 'Queue App',
+    description: 'Queue App is a Next.js application that allows users to manage queues efficiently.',
+    url: 'https://queue-app-website.vercel.app',
+    siteName: 'Queue App',
+    images: [ {
+      url: 'https://queue-app-website.vercel.app/og-image.png',
+      width: 1200,
+      height: 630,
+      alt: 'Queue App Open Graph Image',
+    }],
+    }
 };
 
 export default function RootLayout({

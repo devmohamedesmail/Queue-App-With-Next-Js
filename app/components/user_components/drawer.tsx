@@ -41,45 +41,40 @@ export default function Drawer() {
                         <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
                     </label>
                 </div>
-                <div className="drawer-side ">
+                <div className="drawer-side z-[9999]">
                     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <ul className="menu ] bg-base-200 relative text-base-content min-h-full w-80 p-4">
+                    <ul className="menu z-50 bg-base-200 relative text-base-content min-h-full w-80 p-4">
                         <Drawer_Home_Item title={t('user.home')} href='/' icon={<IoHomeOutline />} className='mb-2' />
                         <Drawer_Home_Item title={t('user.my-queues')} href={`${auth ? '/user/queues' : '/auth/login'}`} icon={<IoMdTime />} className='mb-2' />
 
 
 
-                     
-                       
 
-                        <div className=' w-full  absolute bottom-20'>
-                             
-                             <div className='mb-2'>
-                                  <Language_Switcher />
-                             </div>
-                              {auth ? (
-                            <>
-                                {auth?.user?.role === 'user' && (
-                                    <li>
+
+
+                        <div className=' w-full  absolute bottom-0 right-0 left-0 p-4 bg-base-200 rounded-t-lg'>
+
+                            <div className='mb-2'>
+                                <Language_Switcher />
+                            </div>
+                            {auth ? (
+                                <>
+                                    {auth?.user?.role === 'user' && (
                                         <Link href="/user/profile" className="flex items-center gap-3 justify-center bg-main py-3 text-white  rounded-lg transition-colors">
                                             <CiUser size={18} />
                                             <span>{t('user.account')}</span>
                                         </Link>
-                                    </li>
-                                )}
+                                    )}
 
 
 
 
-                                {auth?.user?.role === 'admin' && (
-                                    <li>
-                                        <Link href="/admin" className="flex items-center gap-3 justify-center bg-main py-3 text-white  rounded-lg transition-colors">
+                                    {auth?.user?.role === 'admin' && (
+                                        <Link href="/admin" className="flex items-center gap-3 justify-center mx-auto bg-main py-3 text-white  rounded-lg transition-colors">
                                             <AiOutlineDashboard size={18} />
                                             <span>{t('user.dashboard')}</span>
                                         </Link>
-                                    </li>
-                                )}
-                                <li>
+                                    )}
                                     <button
                                         onClick={handle_logout}
                                         className="flex items-center justify-center py-3 my-2 gap-3 bg-red-600 hover:text-error-content rounded-lg transition-colors w-full"
@@ -87,10 +82,8 @@ export default function Drawer() {
                                         <AiOutlineLogout size={18} color='white' />
                                         <span className='text-white'>{t('user.logout')}</span>
                                     </button>
-                                </li>
-                            </>
-                        ) : (
-                            <li>
+                                </>
+                            ) : (
                                 <Link
                                     href="/auth/login"
                                     className="btn py-3 bg-main outline-none border-none text-white rounded-lg hover:btn-primary-focus transition-colors w-full"
@@ -98,8 +91,7 @@ export default function Drawer() {
                                     <AiOutlineUserSwitch size={16} />
                                     {t('user.login-register')}
                                 </Link>
-                            </li>
-                        )}
+                            )}
                         </div>
                     </ul>
                 </div>

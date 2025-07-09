@@ -1,4 +1,5 @@
 'use client';
+// import type { Metadata } from "next";
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import Navbar from "./components/user_components/navbar";
@@ -6,6 +7,20 @@ import Map from "./components/user_components/map";
 import Footer from "./components/user_components/footer";
 import Mobile_Dock from "./components/user_components/mobile_dock";
 import Place_Section from "./sections/place_section";
+
+
+
+
+
+
+// export const metadata: Metadata = {
+//   title: "Home | Queue App ",
+//   description: "Queue App is a Next.js application that allows users to manage queues efficiently.",
+// };
+
+
+
+
 
 export default function Home() {
   const { t } = useTranslation();
@@ -23,10 +38,15 @@ export default function Home() {
     );
   }
 
+
+
+
+
+
   return (
     <>
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="relative min-h-screen bg-gradient-to-br from-primary/10 via-secondary/5 to-accent/10 flex items-center justify-center overflow-hidden">
         {/* Animated Background Elements */}
@@ -50,7 +70,7 @@ export default function Home() {
             <h1 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent mb-6 animate-fade-in">
               {t('user.home-page.hero-title')}
             </h1>
-            
+
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-base-content/80 mb-8 leading-relaxed animate-fade-in-delay">
               {t('user.home-page.hero-subtitle')}
@@ -58,8 +78,8 @@ export default function Home() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-              <a 
-                href="#features" 
+              <a
+                href="#features"
                 className="btn btn-primary btn-lg px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 group"
               >
                 {t('user.home-page.get-started')}
@@ -67,8 +87,8 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </a>
-              <a 
-                href="#places" 
+              <a
+                href="#places"
                 className="btn btn-outline btn-lg px-8 py-4 text-lg font-semibold hover:scale-105 transition-all duration-300"
               >
                 {t('user.home-page.discover-places')}
@@ -217,7 +237,7 @@ export default function Home() {
             </p>
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
           </div>
-          
+
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden">
             <Map />
           </div>
@@ -226,9 +246,7 @@ export default function Home() {
 
       {/* Places Section */}
       <section id="places" className="py-20 bg-gradient-to-br from-base-100 to-base-200">
-        <div className="container mx-auto px-4">
-          <Place_Section />
-        </div>
+       <Place_Section />
       </section>
 
       {/* Call to Action Section */}
@@ -248,14 +266,14 @@ export default function Home() {
               {t('user.home-page.cta-subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="/auth/login" 
+              <a
+                href="/auth/login"
                 className="btn btn-white btn-lg px-8 py-4 text-lg font-semibold bg-white text-primary hover:bg-white/90 hover:scale-105 transition-all duration-300 shadow-xl"
               >
                 {t('user.home-page.get-started')}
               </a>
-              <a 
-                href="#places" 
+              <a
+                href="#places"
                 className="btn btn-outline btn-lg px-8 py-4 text-lg font-semibold border-white text-white hover:bg-white hover:text-primary hover:scale-105 transition-all duration-300"
               >
                 {t('user.home-page.browse-all')}
