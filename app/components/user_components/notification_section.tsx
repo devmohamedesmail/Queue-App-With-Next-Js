@@ -32,7 +32,7 @@ function Notification_Section() {
         const res = await axios.get(`${api.baseUrl}api/v1/notifications/user/${userId}`);
         if (res.data && res.data.notifications) {
           setNotifications(res.data.notifications);
-          console.log('Fetched notifications:', res.data.notifications);
+          
         }
       } catch (err) {
         console.error('Error fetching notifications:', err);
