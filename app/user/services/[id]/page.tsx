@@ -23,7 +23,6 @@ export default function Place_Services({ params }: { params: Promise<{ id: strin
         } catch (err) {
             toast.error(t('common.error-occurred', 'An error occurred while fetching services.'));
             setError(err as any);
-            console.log('Error fetching place services:', err);
         } finally {
             setLoading(false);
         }
@@ -97,7 +96,7 @@ export default function Place_Services({ params }: { params: Promise<{ id: strin
             )}
 
             {/* Header Section */}
-            <div className="bg-white/80 backdrop-blur-sm shadow-lg sticky top-0 z-30">
+            {/* <div className="bg-white/80 backdrop-blur-sm shadow-lg sticky top-0 z-30">
                 <div className="container mx-auto px-4 py-6">
                     <div className="flex items-center gap-4 mb-4">
                         <button
@@ -118,7 +117,7 @@ export default function Place_Services({ params }: { params: Promise<{ id: strin
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             {/* Services Section */}
             <div className="container mx-auto px-4 py-8">
@@ -130,10 +129,10 @@ export default function Place_Services({ params }: { params: Promise<{ id: strin
                         </svg>
                     </div>
                     <h2 className="text-3xl md:text-4xl font-bold text-base-content mb-3">
-                        {t('common.select-your-service', 'Select Your Service')}
+                        {t('common.select-your-service')}
                     </h2>
                     <p className="text-lg text-base-content/60 max-w-2xl mx-auto">
-                        {t('user.services.choose-desc', 'Choose from our available services to join the queue and get served efficiently.')}
+                        {t('user.services.choose-desc')}
                     </p>
                     <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4 rounded-full"></div>
                 </div>
@@ -146,7 +145,7 @@ export default function Place_Services({ params }: { params: Promise<{ id: strin
                                 <Service_Item key={service._id || index} service={service} index={index} />
                             ))}
                         </div>
-                        
+
                         {/* Additional Info */}
                         <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg text-center">
                             <div className="flex items-center justify-center gap-2 text-base-content/60 mb-2">

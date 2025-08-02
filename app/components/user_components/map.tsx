@@ -80,7 +80,7 @@ const Map = () => {
                   lng: Number(place.lng ?? place.location?.lng),
                 }}
               />
-             
+
             </React.Fragment>
           ))}
           {/* Modal outside the map loop for single instance */}
@@ -98,7 +98,7 @@ const Map = () => {
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 12.414a4 4 0 10-1.414 1.414l4.243 4.243a1 1 0 001.414-1.414z" /></svg>
                 </span>
                 <h3 className="font-bold text-lg text-gray-800">{selectedPlace?.nameEn}</h3>
-                
+
               </div>
               <div className="mb-6">
                 <h3 className="font-bold text-lg text-gray-800">{selectedPlace?.nameAr}</h3>
@@ -118,7 +118,7 @@ const Map = () => {
                   rel="noopener noreferrer"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 3h7m0 0v7m0-7L10 14m-7 7h7a2 2 0 002-2v-7" /></svg>
-                 {t('common.details')}
+                  {t('common.details')}
                 </Link>
               </div>
             </div>
