@@ -3,12 +3,11 @@ import React, { useState, useRef, useEffect, useContext } from 'react';
 import { FiBell } from 'react-icons/fi';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
-import io, { Socket } from 'socket.io-client';
+import io from 'socket.io-client';
 import { api } from '@/app/config/api';
 import { AuthContext } from '@/app/context/auth_context';
 import Notication_Item from '@/app/items/notication_item';
-import { useNotifications } from '@/app/hooks/useNotifications';
-
+import { CiBellOn } from "react-icons/ci";
 
 function Notification_Section() {
   const { t } = useTranslation();
@@ -35,7 +34,7 @@ function Notification_Section() {
           
         }
       } catch (err) {
-        console.error('Error fetching notifications:', err);
+        // console.error('Error fetching notifications:', err);
       }
     }
     fetchNotifications();
@@ -100,10 +99,11 @@ function Notification_Section() {
     <div className="relative" ref={ref}>
       <button
         aria-label="Notifications"
-        className="p-2 rounded-full mx-3 bg-white/70 hover:bg-white shadow-md transition flex items-center justify-center relative"
+        className="p-2 rounded-full bg-gray-100 mx-3  hover:bg-white  transition flex items-center justify-center relative"
         onClick={() => setOpen((prev) => !prev)}
       >
-        <FiBell className="text-xl text-gray-700" />
+        {/* <FiBell className="text-xl text-gray-700" /> */}
+        <CiBellOn size={22} />
         {notifications.length > 0 && (
           <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full border-2 border-white animate-pulse"></span>
         )}

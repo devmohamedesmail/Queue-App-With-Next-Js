@@ -4,6 +4,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
 import { PlaceContext } from '@/app/context/place_context';
+import { CiSearch } from "react-icons/ci";
 
 export default function Search() {
     const { t } = useTranslation();
@@ -25,13 +26,13 @@ export default function Search() {
                     place.addressEn?.toLowerCase().includes(query) ||
                     place.addressAr?.toLowerCase().includes(query) ||
                     place.description?.toLowerCase().includes(query) ||
-                    place.services?.some((service: any) => 
+                    place.services?.some((service: any) =>
                         service.titleEn?.toLowerCase().includes(query) ||
                         service.titleAr?.toLowerCase().includes(query)
                     )
                 );
             }).slice(0, 5); // Limit to 5 suggestions
-            
+
             setSearchSuggestions(filtered);
             setShowSuggestions(filtered.length > 0);
         } else {
@@ -55,43 +56,18 @@ export default function Search() {
         // Navigate to place details or search results
         router.push(`/user/search?q=${encodeURIComponent(place.nameEn)}&placeId=${place._id}`);
     };
-
-    const handleInputBlur = () => {
-        // Delay hiding suggestions to allow clicking
-        setTimeout(() => {
-            setIsSearchFocused(false);
-            setShowSuggestions(false);
-        }, 200);
-    };
     return (
         <div className="w-full flex justify-center items-center my-4">
             <form onSubmit={handleSearch} className="w-full md:w-1/2 relative">
-                <div className={`relative transition-all  duration-300 ${isSearchFocused ? 'scale-102' : ''}`}>
+                <div className='bg-gray-100 flex items-center gap-2 px-4 py-2'>
+                    <CiSearch size={20} />
                     <input
                         type="text"
+                        className='bg-gray-100 focus:outline-none py-1'
                         placeholder={t('common.search')}
                         value={searchQuery}
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
-                        onFocus={() => setIsSearchFocused(true)}
-                        onBlur={handleInputBlur}
-                        className="input h-12 input-bordered w-full pl-12 pr-12 focus:outline-none focus:ring-2 focus:ring-main focus:border-transparent rounded-2xl bg-white  transition-all duration-300 text-base"
                     />
-                    <AiOutlineSearch
-                        className="absolute left-4 top-1/2 transform -translate-y-1/2 text-base-content/60"
-                        size={20}
-                    />
-                    {searchQuery && (
-                        <button
-                            type="button"
-                            onClick={() => {
-                                setSearchQuery('');
-                                setShowSuggestions(false);
-                            }}
-                            className="absolute right-4 top-1/2 transform -translate-y-1/2 text-base-content/60 hover:text-base-content transition-colors w-6 h-6 flex items-center justify-center rounded-full hover:bg-base-200"
-                        >
-                            ×
-                        </button>
-                    )}
                 </div>
 
                 {/* Search Suggestions Dropdown */}
@@ -110,9 +86,9 @@ export default function Search() {
                                     {/* Place Image */}
                                     <div className="w-12 h-12 rounded-xl overflow-hidden bg-base-200 flex-shrink-0">
                                         {place.image ? (
-                                            <img 
-                                                src={place.image} 
-                                                alt={place.nameEn} 
+                                            <img
+                                                src={place.image}
+                                                alt={place.nameEn}
                                                 className="w-full h-full object-cover"
                                             />
                                         ) : (

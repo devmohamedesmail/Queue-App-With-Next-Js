@@ -20,7 +20,7 @@ export default function Custom_Section_Title({ title = '' }: { title?: string })
           <FiChevronRight className="text-blue-600 text-2xl" />
         )}
       </span>
-      <h2 className="text-md md:text-4xl font-extrabold text-gray-800 tracking-tight drop-shadow-sm">
+      <h2 className="text-md md:text-xl  text-gray-800 tracking-tight drop-shadow-sm">
         {title}
       </h2>
       <div className={`flex-1 border-b-2 border-blue-100 ${isRTL ? 'mr-4' : 'ml-4'}`} />

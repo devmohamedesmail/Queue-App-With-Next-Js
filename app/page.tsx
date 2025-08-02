@@ -42,10 +42,10 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <Hero_Section />
+      {/* <Hero_Section /> */}
 
       {/* Features Section */}
-      <Featured_Section />
+      {/* <Featured_Section /> */}
 
       {/* Map Section */}
       <Map />
