@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { usePathname } from 'next/navigation';
 import { IoHomeOutline, IoHome } from 'react-icons/io5';
 import { FiUser } from 'react-icons/fi';
-import { FaUser, FaPeopleGroup } from 'react-icons/fa6';
+import { FaUser } from 'react-icons/fa6';
 import { HiOutlineQueueList, HiQueueList } from 'react-icons/hi2';
 import { AuthContext } from '@/app/context/auth_context';
 

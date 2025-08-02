@@ -59,7 +59,7 @@ const Map = () => {
 
 
   return (
-    <div className='h-[400px] md:h-[900px]'>
+    <div className='h-[400px] md:h-[900px] container mx-auto px-4'>
       <LoadScript googleMapsApiKey="AIzaSyA74gOioKDIY9AlPHe3eyu4yTSvyAN8RMM">
         <GoogleMap
           mapContainerStyle={containerStyle}

@@ -25,7 +25,7 @@ export default function Custom_Button({
   w= 'w-full',
   title
 }: CustomButtonProps) {
-  const base = 'btn px-6 py-2 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all duration-200';
+  const base = 'btn px-6 py-6 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all duration-200';
   const variants: Record<string, string> = {
     primary: 'bg-main text-white hover:bg-main/90',
     secondary: 'bg-gray-200 text-main hover:bg-gray-300',

@@ -1,10 +1,9 @@
 'use client'
-import React, { createContext, useState, useEffect, Dispatch, SetStateAction, ReactNode } from 'react';
+import React, { createContext, useState, useEffect, Dispatch, SetStateAction } from 'react';
 import axios from 'axios';
 import { api } from '../config/api';
-import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
-import { Router } from 'next/router';
+
 
 
 
@@ -49,26 +48,27 @@ const AuthProvider = ({ children }:any) => {
 
 
 
-    // 🔐 Login function
+    //  Login function
     const login = async (email: string, password: string) => {
-        try {
-            
+        try {          
             const res = await axios.post(`${api.baseUrl}api/v1/auth/login`, {
                 email,
                 password,
             });
-
             const user = res.data;
             setAuth(user);
             localStorage.setItem('user', JSON.stringify(user));
-            return { success: true, status: res.status , user: user };
+            return { 
+                success: true, 
+                status: res.status , 
+                user: user 
+            };
         } catch (error: any) {
-            
             return { success: false, error: error.response?.data?.message || 'Login failed' };
         }
     };
 
-    // 🧾 Register function
+    //  Register function
     const register = async (name: string, email: string, password: string) => {
         console.log('Registering user:', { name, email, password });
         try {
@@ -88,16 +88,14 @@ const AuthProvider = ({ children }:any) => {
         }
     };
 
-    // 🚪 Logout function
+    //  Logout function
     const logout = async () => {
         try {
             setAuth(null);
             localStorage.removeItem('user');
-            toast.success(t('common.logout-success') || 'Logout successful');
-            
+            // toast.success(t('common.logout-success') || 'Logout successful');
             return { success: true };
         } catch (error: any) {
-            console.error('Logout error:', error.message);
             return { success: false, error: 'Logout failed' };
         }
     };

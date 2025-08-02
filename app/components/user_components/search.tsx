@@ -69,12 +69,12 @@ export default function Search() {
                 <div className={`relative transition-all  duration-300 ${isSearchFocused ? 'scale-102' : ''}`}>
                     <input
                         type="text"
-                        placeholder={t('common.search') || 'Search places, services, addresses...'}
+                        placeholder={t('common.search')}
                         value={searchQuery}
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
                         onFocus={() => setIsSearchFocused(true)}
                         onBlur={handleInputBlur}
-                        className="input h-12 input-bordered w-full pl-12 pr-12 focus:outline-none focus:ring-2 focus:ring-main focus:border-transparent rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 text-base"
+                        className="input h-12 input-bordered w-full pl-12 pr-12 focus:outline-none focus:ring-2 focus:ring-main focus:border-transparent rounded-2xl bg-white  transition-all duration-300 text-base"
                     />
                     <AiOutlineSearch
                         className="absolute left-4 top-1/2 transform -translate-y-1/2 text-base-content/60"

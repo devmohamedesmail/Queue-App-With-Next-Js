@@ -17,6 +17,7 @@ import Drawer_Home_Item from './drawer_home_item';
 import { IoHomeOutline } from "react-icons/io5";
 import Drawer from './drawer';
 import Notification_Section from './notification_section';
+import Logo from '../commen_components/logo';
 
 function Navbar() {
 
@@ -66,22 +67,7 @@ function Navbar() {
             <nav className="navbar bg-base-100 shadow-sm border-b border-base-200 px-4 lg:px-8 min-h-[64px]">
                 {/* Logo Section */}
                 <div className="flex-1">
-                    <Link href="/" className="btn btn-ghost text-xl hover:bg-transparent">
-                        <div className="flex items-center gap-3">
-                            <div className="avatar">
-                                <div className="w-10 h-10 rounded-lg overflow-hidden">
-                                    <img
-                                        className='w-full h-full object-cover'
-                                        src={`${settings?.logo}`}
-                                        alt={settings?.nameEn}
-                                    />
-                                </div>
-                            </div>
-                            <span className="font-bold text-main hidden sm:block">
-                                {settings?.nameEn || 'Queue App'}
-                            </span>
-                        </div>
-                    </Link>
+                    <Logo />
                 </div>
 
                 {/* Search Bar (hidden on small screens, show on md+) */}
