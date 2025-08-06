@@ -42,3 +42,6 @@ queue-app-web/
 ├── tsconfig.json
 └── package.json
 # Queue-App-With-Next-Js
+
+
+AIzaSyA74gOioKDIY9AlPHe3eyu4yTSvyAN8RMM

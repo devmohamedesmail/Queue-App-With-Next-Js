@@ -63,7 +63,7 @@ const Map = () => {
 
   return (
     <div className='h-[400px] md:h-[900px]  mx-auto '>
-      <LoadScript googleMapsApiKey="AIzaSyA74gOioKDIY9AlPHe3eyu4yTSvyAN8RMM">
+      <LoadScript googleMapsApiKey="AIzaSyD4xpxErnqHgM-kn-LMa-VFrF3a7HvH-a4">
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
